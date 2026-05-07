@@ -39,8 +39,8 @@ describe('POST /api/users', () => {
     expect(res.status).toBe(400);
   });
 
-  // BUG: This test currently FAILS — empty body causes 500
-  // Agent should fix this via DEMO-142
+  // BUG: This test FAILS — name.trim() throws TypeError when body is {}
+  // Agent should fix this via DEMO-2
   it('returns 400 for empty body', async () => {
     const res = await request(app)
       .post('/api/users')
